@@ -1,4 +1,4 @@
-# Tank Controller in Python
+# Alkalinity Titrator
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
@@ -7,8 +7,7 @@
 
 ## Project Motivations
 
-Update the `TankController` code from C++ to Python and run on a Raspberry Pico.
-
+The Open Acidificatio Alkalinity Titrator is a device meant to offer small universities and research groups an entry level for Ocean Acidification research. Automatic titrator devices can be expensive and our goal is to deliver a device that works and can be easily manufactured at a lower cost than the comersial product. 
 
 ## Requirements
 
