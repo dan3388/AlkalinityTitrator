@@ -35,8 +35,10 @@ else:
     from titration.devices.keypad import Keypad
     from titration.devices.liquid_crystal import LiquidCrystal
 
+from titration.devices.uart import UART
 from titration.devices.ph_probe import PHProbe
 from titration.devices.stir_control import StirControl
 from titration.devices.syringe_pump import SyringePump
+from titration.devices.data_collector import DataCollector
 from titration.devices.temperature_control import TemperatureControl
 from titration.devices.temperature_probe import TemperatureProbe
