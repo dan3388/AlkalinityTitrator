@@ -5,8 +5,8 @@ The file for the temperature controller device
 # pylint:disable=too-many-instance-attributes, too-many-branches, redefined-outer-name
 
 import time
-
-import pandas as pd
+import shutil
+import csv
 
 TIMESTEP = 1
 SETPOINT = 30
@@ -26,7 +26,7 @@ class TemperatureControl:
     using a SSR and Heated Beaker Jacket
     """
 
-    def __init__(self, temperature_probe, heater):
+    def __init__(self, temperature_probe, heater, log_filename="temp_log.csv"):
         """
         The constructor for the TemperatureControl class
 
@@ -63,8 +63,11 @@ class TemperatureControl:
         self.temperature_last = 0
 
         # Data Fame of Measurements
-        self.data_frame = pd.DataFrame(columns=["time (s)", "temperature (C)", "gain"])
-
+        self.log_filename = log_filename
+        with open(self.log_filename, "w", newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(["time (s)", "temperature (C)", "gain"])
+       
     def update(self):
         """
         The function run during the titration. update() will
@@ -117,20 +120,19 @@ class TemperatureControl:
                     self.time_next = time.time() + TIMESTEP
                     self.__update_priors()
 
-                # Add data to self.data_frame
-                data_frame_new = pd.DataFrame(
-                    [[time.ctime(time_now), temperature, self.k]],
-                    columns=["time (s)", "temperature (C)", "gain"],
-                )
-                self.data_frame = pd.concat(
-                    [self.data_frame, data_frame_new], axis=0, ignore_index=True
-                )
+                with open(self.log_filename, "a", newline='') as f:
+                    writer = csv.writer(f)
+                    writer.writerow([time_now, temperature, self.k])
 
     def output_csv(self, filename):
         """
         The function to output a csv file of the temperature data
         """
-        self.data_frame.to_csv(filename, index_label="step", header=True)
+    
+        try:
+            shutil.copy(self.log_filename, filename)
+        except FileNotFoundError:
+            pass
 
     def at_temperature(self):
         """

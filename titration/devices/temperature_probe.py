@@ -7,7 +7,7 @@ The file for the temperature probe device
 from titration.devices.library import MAX31865, SPI, DigitalInOut, board
 
 DEFAULT_REF_RESISTANCE = 4300.0
-NOMINAL_RESISTANCE = 100.0
+NOMINAL_RESISTANCE = 1000.0
 
 # Constants for calibration
 A = 0.0039083
