@@ -17,13 +17,20 @@ def run_hardware_test():
     
     try:
         pump = SyringePump()
+        print("pump done")
         ph_probe = PHProbe()
+        print("PH probe done")
         stir_controller = StirControl()
+        print("Stir control done")
         keypad = Keypad()
+        print("keypad done")
         stir_controller.set_stop()
         temp_probe = TemperatureProbe(2)
+        print("Temp probe done")
         heater = Heater(12)
-        control = TemperatureControl(control, heater)
+        print("Heater done")
+        control = TemperatureControl(temp_probe, heater)
+        print("Control done")
         print("Hardware initialized successfully.\n")
     except Exception as e:
         print(f"Failed to initialize hardware: {e}")
