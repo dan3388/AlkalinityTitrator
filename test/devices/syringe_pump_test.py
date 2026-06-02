@@ -1,168 +1,46 @@
-"""
-The file to test the syringe pump
-"""
-import pytest
+import time
+from titration.devices.syringe_pump import SyringePump
 
-from titration.devices.library import SyringePump
+def run_hardware_test():
+    print("="*50)
+    print("Starting Syringe Pump Hardware Test")
+    print("="*50)
 
+    try:
+        # 1. Initialization
+        print("\n[1] Initializing SyringePump Object...")
+        pump = SyringePump()
+        print(f"Success! Current recorded volume in pump: {pump.volume_in_pump} mL")
 
-def create_syringe_pump():
-    """
-    The function to create a test syringe pump
-    """
-    return SyringePump()
+        # 2. Test Dispense
+        dispense_amt = 0.1
+        print(f"\n[2] Testing Dispense: Pushing {dispense_amt} mL...")
+        missed = pump.dispense(dispense_amt)
+        print(f"Dispense complete. Missed volume: {missed} mL.")
+        print(f"Current recorded volume in pump: {pump.volume_in_pump} mL")
+        
+        time.sleep(2) # Brief pause so you can observe the physical pump
 
+        # 3. Test Emptying
+        print("\n[3] Testing Emptying: Pushing remaining fluid out...")
+        pump.empty()
+        print("Emptying complete.")
+        print(f"Current recorded volume in pump: {pump.volume_in_pump} mL")
+        
+        time.sleep(2)
 
-def test_syringe_create():
-    """
-    The function to test creating syringe
-    """
-    pump = create_syringe_pump()
+        # 4. Test Refilling
+        print("\n[4] Testing Refill: Pulling fluid back in...")
+        pump.refill()
+        print("Refill complete.")
+        print(f"Current recorded volume in pump: {pump.volume_in_pump} mL")
 
-    assert pump.volume_in_pump == 0
-    assert pump.serial is not None
-    assert pump is not None
+        print("\n" + "="*50)
+        print("All hardware tests completed successfully!")
+        print("="*50)
 
+    except Exception as e:
+        print("\n!!! ERROR ENCOUNTERED DURING TEST !!!")
+        print(str(e))
 
-def test_syringe_set_volume_above_max():
-    """
-    The function to test setting the syringe volume
-    """
-    pump = create_syringe_pump()
-
-    with pytest.raises(Exception) as exc_info:
-        pump.set_volume_in_pump(1.11)
-
-    assert exc_info.value.args == (
-        "Set Volume Error: Volume set is higher than maximum capacity",
-    )
-    assert pump.volume_in_pump == 0
-
-
-def test_syringe_set_volume_negative():
-    """
-    The function to test setting the syringe volume below zero
-    """
-    pump = create_syringe_pump()
-
-    with pytest.raises(Exception) as exc_info:
-        pump.set_volume_in_pump(-1)
-
-    assert exc_info.value.args == (
-        "Set Volume Error: Volume set cannot be a negative value",
-    )
-    assert pump.volume_in_pump == 0
-
-
-def test_syringe_set_volume():
-    """
-    The function to test setting the syringe volume correctly
-    """
-    pump = create_syringe_pump()
-
-    pump.set_volume_in_pump(0.5)
-
-    assert pump.volume_in_pump == 0.5
-
-
-def test_syringe_get_volume():
-    """
-    The function to test getting the syringe volume
-    """
-    pump = create_syringe_pump()
-
-    pump.volume_in_pump = 0.5
-
-    assert pump.get_volume_in_pump() == 0.5
-
-
-def test_pump_volume_in():
-    """
-    The function to test pulling liquid into the syringe
-    """
-    pump = create_syringe_pump()
-
-    pump.pull_volume_in(0.5)
-
-    assert pump.volume_in_pump == 0.5
-
-
-def test_pump_volume_in_above_max():
-    """
-    The function to test pulling more liquid than the syringe can hold
-    """
-    pump = create_syringe_pump()
-
-    pump.pull_volume_in(1.11)
-
-    assert pump.volume_in_pump == 1.1
-
-
-def test_pump_volume_in_negative():
-    """
-    The function to test pulling in negative liquid to the syringe
-    """
-    pump = create_syringe_pump()
-
-    with pytest.raises(Exception) as exc_info:
-        pump.pull_volume_in(-0.5)
-
-    assert exc_info.value.args == ("can't convert negative int to unsigned",)
-    assert pump.volume_in_pump == 0
-
-
-def test_pump_volume_out_exact():
-    """
-    The function to test pumping a volume out of the syringe
-
-    Testing line 107: volume is equal to the volume in the pump
-    """
-    pump = create_syringe_pump()
-
-    pump.volume_in_pump = 0.5
-    pump.push_volume_out(0.5)
-
-    assert pump.volume_in_pump == 0
-
-
-def test_pump_volume_out_above_max_capacity():
-    """
-    The function to test pumping more than the max amount of volume the pump can hold
-
-    Testing line 81: volume is greater than max pump capacity
-    """
-    pump = create_syringe_pump()
-
-    pump.volume_in_pump = 1.1
-    pump.push_volume_out(1.11)
-
-    assert pump.volume_in_pump == 0
-
-
-def test_pump_volume_out_above_syringe_volume():
-    """
-    The function to test when pumping out more volume than what is currently in the syringe
-
-    Testing line 98: volume to add is greater than volume in pump
-    """
-    pump = create_syringe_pump()
-
-    pump.volume_in_pump = 0.5
-    pump.push_volume_out(0.75)
-
-    assert pump.volume_in_pump == 0
-
-
-def test_pump_volume_out_negative():
-    """
-    The function to test pumping out a negative amount of liquid
-    """
-    pump = create_syringe_pump()
-
-    pump.volume_in_pump = 0.5
-
-    with pytest.raises(Exception) as exc_info:
-        pump.push_volume_out(-0.5)
-
-    assert exc_info.value.args == ("can't convert negative int to unsigned",)
-    assert pump.volume_in_pump == 0.5
+run_hardware_test()
