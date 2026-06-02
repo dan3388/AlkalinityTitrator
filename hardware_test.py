@@ -5,7 +5,11 @@ from titration.devices.library import (
     PHProbe,
     StirControl,
     SyringePump,
+    TemperatureControl,
+    TemperatureProbe,
+    Heater
 )
+hcl_volume = 0
 
 def run_hardware_test():
     print("--- Alkalinity Titrator: Standalone Hardware Test ---")
@@ -17,6 +21,9 @@ def run_hardware_test():
         stir_controller = StirControl()
         keypad = Keypad()
         stir_controller.set_stop()
+        temp_probe = TemperatureProbe(2)
+        heater = Heater(12)
+        control = TemperatureControl(control, heater)
         print("Hardware initialized successfully.\n")
     except Exception as e:
         print(f"Failed to initialize hardware: {e}")
@@ -45,16 +52,16 @@ def run_hardware_test():
             
         # 3. Ask for direction
         print(f"\nMoving {volume} ml. Choose direction:")
-        print("0: Pull Volume In")
+        print("0: Refill")
         print("1: Push Volume Out")
         direction = input("> ").strip()
         
         if direction == '0':
             print(f"[Hardware] Pulling {volume} ml in...")
-            pump.pull_volume_in(volume)
+            pump.refill(volume)
         elif direction == '1':
             print(f"[Hardware] Pushing {volume} ml out...")
-            pump.push_volume_out(volume)
+            pump.dispense(volume)
         else:
             print("Invalid direction. Skipping pump action.")
             continue
@@ -68,12 +75,15 @@ def run_hardware_test():
             try:
                 stir_time = float(stir_input)
                 print(f"[Hardware] Stirring for {stir_time} seconds...")
-                stir_controller.set_fast()
+                stir_controller.set_slow()
                 time.sleep(stir_time)
                 stir_controller.set_stop()
                 print("[Hardware] Stirring complete.")
             except ValueError:
                 print("Invalid time. Skipping stir.")
+        
+        print(f"\nDispensed {hcl_volume}mL of HCl\n")
+        print(f"-------*---------*-------*---------*-------*---------")
 
 if __name__ == "__main__":
     try:
