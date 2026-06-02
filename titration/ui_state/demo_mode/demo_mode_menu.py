@@ -82,23 +82,38 @@ class DemoModeMenu(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("1: Read values", line=1)
-            self.titrator.lcd.print("2: Demo pH probe", line=2)
-            self.titrator.lcd.print("3: Demo pump", line=3)
-            self.titrator.lcd.print("4: Page 2", line=4)
+            #self.titrator.lcd.print("1: Read values", line=1)
+            #self.titrator.lcd.print("2: Demo pH probe", line=2)
+            #self.titrator.lcd.print("3: Demo pump", line=3)
+            #self.titrator.lcd.print("4: Page 2", line=4)
+            
+            print("1: Read values")
+            print("2: Demo pH probe")
+            print("3: Demo pump")
+            print("4: Page 2")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("1: Demo stir control", line=1)
-            self.titrator.lcd.print("2: Demo temp probe", line=2)
-            self.titrator.lcd.print("3: Demo temp control", line=3)
-            self.titrator.lcd.print("4: Page 1", line=4)
+            #self.titrator.lcd.print("1: Demo stir control", line=1)
+            #self.titrator.lcd.print("2: Demo temp probe", line=2)
+            #self.titrator.lcd.print("3: Demo temp control", line=3)
+            #self.titrator.lcd.print("4: Page 1", line=4)
+            
+            print("1: Demo stir control")
+            print("2: Demo temp probe")
+            print("3: Demo temp control")
+            print("4: Page 1")
 
         elif self.substate == 3:
-            self.titrator.lcd.print("pH probe", line=1)
-            self.titrator.lcd.print(
-                f"{self.titrator.ph_probe.get_voltage()} volts", line=2, style="center"
-            )
-            self.titrator.lcd.print(
-                f"{self.titrator.ph_probe.get_gain()} volts", line=3, style="center"
-            )
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("pH probe", line=1)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.ph_probe.get_voltage()} volts", line=2, style="center"
+            #)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.ph_probe.get_gain()} volts", line=3, style="center"
+            #)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("pH probe")
+            print(f"{self.titrator.ph_probe.get_voltage()} volts")
+            print(f"{self.titrator.ph_probe.get_gain()} volts")
+            print("Any key to continue")

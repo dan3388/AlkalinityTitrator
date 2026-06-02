@@ -53,37 +53,62 @@ class DemoStirControl(UIState):
         if key == Keypad.KEY_D:
             self.titrator.stir_controller.set_stop()
             self._set_next_state(self.previous_state, True)
-
+            
     def loop(self):
         """
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("1: Set fast speed", line=1)
-            self.titrator.lcd.print("2: Set slow speed", line=2)
-            self.titrator.lcd.print("3: Degas", line=3)
-            self.titrator.lcd.print("4: Return", line=4)
+            #self.titrator.lcd.print("1: Set fast speed", line=1)
+            #self.titrator.lcd.print("2: Set slow speed", line=2)
+            #self.titrator.lcd.print("3: Degas", line=3)
+            #self.titrator.lcd.print("4: Return", line=4)
+
+            print("1: Set fast speed")
+            print("2: Set slow speed")
+            print("3: Degas")
+            print("4: Return")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Motor speed", line=1)
-            self.titrator.lcd.print("set to fast", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Motor speed", line=1)
+            #self.titrator.lcd.print("set to fast", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+
+            print("Motor speed")
+            print("set to fast")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 3:
-            self.titrator.lcd.print("Motor speed", line=1)
-            self.titrator.lcd.print("set to slow", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Motor speed", line=1)
+            #self.titrator.lcd.print("set to slow", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+
+            print("Motor speed")
+            print("set to slow")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 4:
-            self.titrator.lcd.print("Degassing solution", line=1)
-            self.titrator.lcd.print("Time remaining:", line=2)
-            self.titrator.lcd.print(self.titrator.stir_controller.get_timer(), line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Degassing solution", line=1)
+            #self.titrator.lcd.print("Time remaining:", line=2)
+            #self.titrator.lcd.print(self.titrator.stir_controller.get_timer(), line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+
+            print("Degassing solution")
+            print("Time remaining:")
+            print(self.titrator.stir_controller.get_timer())
+            print("Any key to continue")
 
         elif self.substate == 5:
-            self.titrator.lcd.print("", line=1)
-            self.titrator.lcd.print("Any key to begin", line=2)
-            self.titrator.lcd.print("degassing solution", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("", line=1)
+            #self.titrator.lcd.print("Any key to begin", line=2)
+            #self.titrator.lcd.print("degassing solution", line=3)
+            #self.titrator.lcd.print("", line=4)
+
+            print("")
+            print("Any key to begin")
+            print("degassing solution")
+            print("")

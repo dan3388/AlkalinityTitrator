@@ -69,14 +69,24 @@ class MainMenu(UIState):
         The function to loop through until a keypad press
         """
 
-        if self.substate == 1:
-            self.titrator.lcd.print("1: Run titration", line=1)
-            self.titrator.lcd.print("2: Calibrate sensors", line=2)
-            self.titrator.lcd.print("3: Prime pump", line=3)
-            self.titrator.lcd.print("4: Page 2", line=4)
+        if self.substate == 1:			
+            #self.titrator.lcd.print("1: Run titration", line=1)
+            #self.titrator.lcd.print("2: Calibrate sensors", line=2)
+            #self.titrator.lcd.print("3: Prime pump", line=3)
+            #self.titrator.lcd.print("4: Page 2", line=4)
+            
+            print("1: Run titration")
+            print("2: Calibrate sensors")
+            print("3: Prime pump")
+            print("4: Page 2")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("1: Update settings", line=1)
-            self.titrator.lcd.print("2: Test mode", line=2)
-            self.titrator.lcd.print("3: Exit", line=3)
-            self.titrator.lcd.print("4: Page 1", line=4)
+            #self.titrator.lcd.print("1: Update settings", line=1)
+            #self.titrator.lcd.print("2: Test mode", line=2)
+            #self.titrator.lcd.print("3: Exit", line=3)
+            #self.titrator.lcd.print("4: Page 1", line=4)
+            
+            print("1: Update settings")
+            print("2: Test mode")
+            print("3: Exit")
+            print("4: Page 1")

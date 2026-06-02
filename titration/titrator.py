@@ -7,7 +7,7 @@ The file for the Titrator class
 from titration.devices.library import (
     Heater,
     Keypad,
-    LiquidCrystal,
+    LiquidCrystalSPI,
     PHProbe,
     StirControl,
     SyringePump,
@@ -33,7 +33,7 @@ class Titrator:
         The constructor for the Titrator class
         """
         # Initialize LCD
-        self.lcd = LiquidCrystal()
+        self.lcd = LiquidCrystalSPI()
 
         # Initialize Keypad
         self.keypad = Keypad()
@@ -46,10 +46,11 @@ class Titrator:
 
         # Initialize Stir Controller
         self.stir_controller = StirControl()
+        self.stir_controller.set_stop()
 
         # Initialize Temperature Probes
-        self.temperature_probe_control = TemperatureProbe(1)
-        self.temperature_probe_logging = TemperatureProbe(2)
+        self.temperature_probe_control = TemperatureProbe(2)
+        self.temperature_probe_logging = self.temperature_probe_control
 
         # Initialize Heater to PIN 12
         self.heater = Heater(12)
@@ -124,9 +125,9 @@ class Titrator:
         """
         The function used to receive the keypad input and process the appropriate response
         """
-        print("Titrator::handleUI() - ", self.state.name())
+        print("\rTitrator::handleUI() - ", self.state.name())
         key = self.keypad.get_key()
-        print("Titrator::handleUI() - ", self.state.name(), "::handleKey(", key, ")")
+        print("\rTitrator::handleUI() - ", self.state.name(), "::handleKey(", key, ")")
         if key is not None:
             self.state.handle_key(key)
         self.state.loop()

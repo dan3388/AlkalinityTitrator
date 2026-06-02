@@ -7,7 +7,7 @@ The file for the temperature probe device
 from titration.devices.library import MAX31865, SPI, DigitalInOut, board
 
 DEFAULT_REF_RESISTANCE = 4300.0
-NOMINAL_RESISTANCE = 1000.0
+NOMINAL_RESISTANCE = 1000
 
 # Constants for calibration
 A = 0.0039083
@@ -24,7 +24,7 @@ class TemperatureProbe:
         """
         The constructor for the TemperatureProbe class
         """
-        self.spi = SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
+        self.spi = SPI(board.D11, MOSI=board.D10, MISO=board.D9)
 
         # Specify which probe is being initialized
         if probe_number == 1:
@@ -33,9 +33,9 @@ class TemperatureProbe:
             self.c_s = DigitalInOut(board.D4)
 
         self.sensor = MAX31865(
-            self.spi, self.c_s, wires=3, ref_resistor=DEFAULT_REF_RESISTANCE
+            self.spi, self.c_s, wires=2, rtd_nominal=NOMINAL_RESISTANCE, ref_resistor=DEFAULT_REF_RESISTANCE
         )
-
+        
         self.reference_resistance = DEFAULT_REF_RESISTANCE
 
     def get_temperature(self):
@@ -49,6 +49,12 @@ class TemperatureProbe:
         The function to get the probe's resistance
         """
         return self.sensor.resistance
+    
+    def get_fault(self):
+        """
+        The function to get the probe's faults if any
+        """
+        return self.sensor.fault
 
     def calibrate(self, temp):
         """
@@ -78,6 +84,6 @@ class TemperatureProbe:
         self.sensor = MAX31865(
             self.spi,
             self.c_s,
-            wires=3,
+            wires=2,
             ref_resistor=self.reference_resistance,
         )

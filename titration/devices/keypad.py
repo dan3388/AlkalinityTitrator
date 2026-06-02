@@ -62,14 +62,14 @@ class Keypad:
         The constructor for the mock Keypad class.
         """
 
-        self.pin_r0 = digitalio.DigitalInOut(board.D1)
-        self.pin_r1 = digitalio.DigitalInOut(board.D6)
-        self.pin_r2 = digitalio.DigitalInOut(board.D5)
-        self.pin_r3 = digitalio.DigitalInOut(board.D19)
-        self.pin_c0 = digitalio.DigitalInOut(board.D16)
-        self.pin_c1 = digitalio.DigitalInOut(board.D26)
-        self.pin_c2 = digitalio.DigitalInOut(board.D20)
-        self.pin_c3 = digitalio.DigitalInOut(board.D21)
+        self.pin_r0 = digitalio.DigitalInOut(board.D17)
+        self.pin_r1 = digitalio.DigitalInOut(board.D18)
+        self.pin_r2 = digitalio.DigitalInOut(board.D27)
+        self.pin_r3 = digitalio.DigitalInOut(board.D22)
+        self.pin_c0 = digitalio.DigitalInOut(board.D23)
+        self.pin_c1 = digitalio.DigitalInOut(board.D24)
+        self.pin_c2 = digitalio.DigitalInOut(board.D25)
+        self.pin_c3 = digitalio.DigitalInOut(board.D1)
 
         self.rows = [self.pin_r0, self.pin_r1, self.pin_r2, self.pin_r3]
         self.cols = [self.pin_c0, self.pin_c1, self.pin_c2, self.pin_c3]

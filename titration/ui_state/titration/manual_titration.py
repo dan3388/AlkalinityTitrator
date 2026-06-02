@@ -85,47 +85,80 @@ class ManualTitration(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("Enter volume", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Enter volume", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Enter volume")
+            print("")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Direction (0/1):", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("Direction (0/1):", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print("Direction (0/1):")
+            print("")
+            print("")
+            print("")
+            
 
         elif self.substate == 3:
-            self.titrator.lcd.print(
-                f"Current pH: {self.values['current_pH']:>4.5f}", line=1
-            )
-            self.titrator.lcd.print("Add more HCl:", line=2)
-            self.titrator.lcd.print("(0 - No, 1 - Yes)", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print(
+            #    f"Current pH: {self.values['current_pH']:>4.5f}", line=1
+            #)
+            #self.titrator.lcd.print("Add more HCl:", line=2)
+            #self.titrator.lcd.print("(0 - No, 1 - Yes)", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print(f"Current pH: {self.values['current_pH']:>4.5f}")
+            print("Add more HCl:")
+            print("(0 - No, 1 - Yes)")
+            print("")
 
         elif self.substate == 4:
-            self.titrator.lcd.print(
-                f"Current pH: {self.values['current_pH']:>4.5f}", line=1
-            )
-            self.titrator.lcd.print("Degas:", line=2)
-            self.titrator.lcd.print("(0 - No, 1 - Yes)", line=3)
-            self.titrator.lcd.print("", line=4)
-
+            #self.titrator.lcd.print(
+            #    f"Current pH: {self.values['current_pH']:>4.5f}", line=1
+            #)
+            #self.titrator.lcd.print("Degas:", line=2)
+            #self.titrator.lcd.print("(0 - No, 1 - Yes)", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print(f"Current pH: {self.values['current_pH']:>4.5f}")
+            print("Degas:")
+            print("(0 - No, 1 - Yes)")
+            print("")
+            
+            
         elif self.substate == 5:
-            self.titrator.lcd.print("Enter degas time", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Enter degas time", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Enter degas time")
+            print("")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 6:
-            self.titrator.lcd.print("Return to", line=1)
-            self.titrator.lcd.print("main menu", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Return to", line=1)
+            #self.titrator.lcd.print("main menu", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Return to")
+            print("main menu")
+            print("")
+            print("Any key to continue")
 
     def start(self):
         """
         The function to display MANUAL SELECTED upon entering the ManualTitration state
         """
-        self.titrator.lcd.print("MANUAL SELECTED", style="center", line=4)
+        #self.titrator.lcd.print("MANUAL SELECTED", style="center", line=4)
+        print("MANUAL SELECTED")

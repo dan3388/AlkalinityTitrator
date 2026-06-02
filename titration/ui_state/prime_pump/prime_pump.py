@@ -53,13 +53,23 @@ class PrimePump(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("How many pumps?", line=1)
-            self.titrator.lcd.print("Choose a number", line=2)
-            self.titrator.lcd.print("Choose 0 to return", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("How many pumps?", line=1)
+            #self.titrator.lcd.print("Choose a number", line=2)
+            #self.titrator.lcd.print("Choose 0 to return", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print("How many pumps?")
+            print("Choose a number")
+            print("Choose 0 to return")
+            print("")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("How many more?", line=1)
-            self.titrator.lcd.print("Choose a number", line=2)
-            self.titrator.lcd.print("Choose 0 to return", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("How many more?", line=1)
+            #self.titrator.lcd.print("Choose a number", line=2)
+            #self.titrator.lcd.print("Choose 0 to return", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print("How many more?")
+            print("Choose a number")
+            print("Choose 0 to return")
+            print("")

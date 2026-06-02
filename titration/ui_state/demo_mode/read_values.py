@@ -43,28 +43,38 @@ class ReadValues(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print(
-                f"pH:     {self.titrator.ph_probe.get_voltage():>4.5f} pH", line=1
-            )
-            self.titrator.lcd.print(
-                f"pH V:   {(self.titrator.ph_probe.get_voltage() * 1000):>3.4f} mV",
-                line=2,
-            )
-            self.titrator.lcd.print(
-                f"Gain:   {self.titrator.ph_probe.get_gain()}", line=3
-            )
-            self.titrator.lcd.print(
-                f"Volume: {self.titrator.pump.get_volume_in_pump()} ml", line=4
-            )
+            #self.titrator.lcd.print(
+            #    f"pH:     {self.titrator.ph_probe.get_voltage():>4.5f} pH", line=1
+            #)
+            #self.titrator.lcd.print(
+            #    f"pH V:   {(self.titrator.ph_probe.get_voltage() * 1000):>3.4f} mV",
+            #    line=2,
+            #)
+            #self.titrator.lcd.print(
+            #    f"Gain:   {self.titrator.ph_probe.get_gain()}", line=3
+            #)
+            #self.titrator.lcd.print(
+            #    f"Volume: {self.titrator.pump.get_volume_in_pump()} ml", line=4
+            #)
+            
+            print(f"pH:     {self.titrator.ph_probe.get_voltage():>4.5f} pH")
+            print(f"pH V:   {(self.titrator.ph_probe.get_voltage() * 1000):>3.4f} mV")
+            print(f"Gain:   {self.titrator.ph_probe.get_gain()}")
+            print(f"Volume: {self.titrator.pump.get_volume_in_pump()} ml")
 
         elif self.substate == 2:
-            self.titrator.lcd.print(
-                f"Temp:   {self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
-                line=1,
-            )
-            self.titrator.lcd.print(
-                f"Res:    {self.titrator.temperature_probe_control.get_resistance():>4.3f} Ohms",
-                line=2,
-            )
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print(
+            #    f"Temp:   {self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
+            #    line=1,
+            #)
+            #self.titrator.lcd.print(
+            #    f"Res:    {self.titrator.temperature_probe_control.get_resistance():>4.3f} Ohms",
+            #    line=2,
+            #)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print(f"Temp:   {self.titrator.temperature_probe_control.get_temperature():>4.3f} C")
+            print(f"Res:    {self.titrator.temperature_probe_control.get_resistance():>4.3f} Ohms")
+            print("")
+            print("Any key to continue")

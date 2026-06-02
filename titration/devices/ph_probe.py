@@ -19,7 +19,7 @@ class PHProbe:
         """
         self.i2c = busio.I2C(board.SCL, board.SDA)
         self.ads = ADS.ADS1115(self.i2c)
-        self.channel = analog_in.AnalogIn(self.ads, ADS.P0, ADS.P1)
+        self.channel = analog_in.AnalogIn(self.ads, 0, 1)
 
         self.ads.gain = gain
         self.gain_options = [2 / 3, 1, 2, 4, 8, 16]

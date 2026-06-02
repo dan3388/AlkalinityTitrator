@@ -56,22 +56,37 @@ class SetupTitration(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("Enter solution", line=1)
-            self.titrator.lcd.print("weight (g)", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
-
+            #self.titrator.lcd.print("Enter solution", line=1)
+            #self.titrator.lcd.print("weight (g)", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            print("Enter solution")
+            print("weight (g)")
+            print("")
+            print("Any key to continue")
+            
+            
         elif self.substate == 2:
-            self.titrator.lcd.print("Enter solution", line=1)
-            self.titrator.lcd.print("salinity (ppt)", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Enter solution", line=1)
+            #self.titrator.lcd.print("salinity (ppt)", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Enter solution")
+            print("salinity (ppt)")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 3:
-            self.titrator.lcd.print("Calibrate pH probe:", line=1)
-            self.titrator.lcd.print("Yes: 1", line=2)
-            self.titrator.lcd.print("No (use old): 0", line=3)
-            self.titrator.lcd.print(
-                f"{PH_REF_PH:>2.3f} pH: {PH_REF_VOLTAGE:>2.4f} V",
-                line=4,
-            )
+            #self.titrator.lcd.print("Calibrate pH probe:", line=1)
+            #self.titrator.lcd.print("Yes: 1", line=2)
+            #self.titrator.lcd.print("No (use old): 0", line=3)
+            #self.titrator.lcd.print(
+            #    f"{PH_REF_PH:>2.3f} pH: {PH_REF_VOLTAGE:>2.4f} V",
+            #    line=4,
+            #)
+            
+            print("Calibrate pH probe:")
+            print("Yes: 1")
+            print("No (use old): 0")
+            print(f"{PH_REF_PH:>2.3f} pH: {PH_REF_VOLTAGE:>2.4f} V")

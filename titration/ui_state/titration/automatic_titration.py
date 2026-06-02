@@ -58,36 +58,57 @@ class AutomaticTitration(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print(
-                f"Titrating to {self.values['pH_target']} pH",
-                line=1,
-            )
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print(
+            #    f"Titrating to {self.values['pH_target']} pH",
+            #    line=1,
+            #)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print(f"Titrating to {self.values['pH_target']} pH")
+            print("")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Mixing...", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Mixing...", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Mixing...")
+            print("")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 3:
-            self.titrator.lcd.print(
-                f"pH value {self.values['current_pH']} reached", line=1
-            )
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
-
+            #self.titrator.lcd.print(
+            #    f"pH value {self.values['current_pH']} reached", line=1
+            #)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print(f"pH value {self.values['current_pH']} reached")
+            print("")
+            print("")
+            print("Any key to continue")
+            
         elif self.substate == 4:
-            self.titrator.lcd.print("Return to", line=1)
-            self.titrator.lcd.print("main menu", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Return to", line=1)
+            #self.titrator.lcd.print("main menu", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Return to")
+            print("main menu")
+            print("")
+            print("Any key to continue")
 
     def start(self):
         """
         The function to display AUTO SELECTED upon entering the AutomaticTitration state
         """
-        self.titrator.lcd.print("AUTO SELECTED", style="center", line=4)
+        #self.titrator.lcd.print("AUTO SELECTED", style="center", line=4)
+        print("AUTO SELECTED")

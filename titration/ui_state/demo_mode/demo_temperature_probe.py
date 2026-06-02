@@ -43,35 +43,50 @@ class DemoTemperatureProbe(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("1: Probe one", line=1)
-            self.titrator.lcd.print("2: Probe two", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("4: Return", line=4)
+            #self.titrator.lcd.print("1: Probe one", line=1)
+            #self.titrator.lcd.print("2: Probe two", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("4: Return", line=4)
+            
+            print("1: Probe one")
+            print("2: Probe two")
+            print("")
+            print("4: Return")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Probe one", line=1)
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
-                line=2,
-                style="center",
-            )
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_control.get_resistance()} Ohms",
-                line=3,
-                style="center",
-            )
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Probe one", line=1)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
+            #    line=2,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_control.get_resistance()} Ohms",
+            #    line=3,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Probe one")
+            print("{self.titrator.temperature_probe_control.get_temperature():>4.3f} C")
+            print(f"{self.titrator.temperature_probe_control.get_resistance()} Ohms")
+            print("Any key to continue")
 
         elif self.substate == 3:
-            self.titrator.lcd.print("Probe two", line=1)
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_logging.get_temperature():>4.3f} C",
-                line=2,
-                style="center",
-            )
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_logging.get_resistance()} Ohms",
-                line=3,
-                style="center",
-            )
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Probe two", line=1)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_logging.get_temperature():>4.3f} C",
+            #    line=2,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_logging.get_resistance()} Ohms",
+            #    line=3,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Probe two")
+            print(f"{self.titrator.temperature_probe_logging.get_temperature():>4.3f} C")
+            print(f"{self.titrator.temperature_probe_logging.get_resistance()} Ohms")
+            print("Any key to continue")

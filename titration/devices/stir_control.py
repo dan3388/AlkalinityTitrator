@@ -6,8 +6,8 @@ import time
 
 from titration.devices.library import board, pwmio
 
-STIR_PWM_FAST = 5000
-STIR_PWM_SLOW = 3000
+STIR_PWM_FAST = 35000
+STIR_PWM_SLOW = 50000
 STIR_FREQUENCY = 100
 STIR_DUTY_CYCLE = 0
 
@@ -25,7 +25,6 @@ class StirControl:
         self._motor = pwmio.PWMOut(
             board.D13, duty_cycle=STIR_DUTY_CYCLE, frequency=STIR_FREQUENCY
         )
-
         # Timer variables
         self.start_time = 0
         self.current_time = 0
@@ -59,7 +58,7 @@ class StirControl:
         """
         The function to stop the motor
         """
-        self._motor.duty_cycle = 0
+        self._motor.duty_cycle = 65535
 
     def degas(self, degas_time):
         """

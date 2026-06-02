@@ -8,7 +8,7 @@ import busio
 import digitalio
 import adafruit_character_lcd.character_lcd_spi as character_lcd
 
-# LCD Device Constants
+
 LCD_WIDTH = 20
 LCD_HEIGHT = 4
 
@@ -17,7 +17,7 @@ class LiquidCrystalSPI:
     The class for the Sunfire LCD 20x04 Char Display via SPI
     """
 
-    def __init__(self, latch_pin=board.D5):
+    def __init__(self, latch_pin=board.D19, clock_pin=board.D21, data_pin=board.D20):
         """
         The constructor for the SPI LiquidCrystal class.
         
@@ -28,7 +28,7 @@ class LiquidCrystalSPI:
         self.rows = LCD_HEIGHT
 
         # Initialize SPI bus (SCK and MOSI are used for the backpack)
-        self.spi = busio.SPI(board.SCK, MOSI=board.MOSI)
+        self.spi = busio.SPI(clock_pin, MOSI=data_pin)
         
         # Initialize Latch pin
         self.latch = digitalio.DigitalInOut(latch_pin)
@@ -72,7 +72,7 @@ class LiquidCrystalSPI:
 
         row = line - 1
         if 0 <= row < self.rows:
-            self.lcd.cursor_position = (0, row)
+            self.lcd.cursor_position(0, row)
             self.lcd.message = message
 
     def lcd_backlight(self, enable):

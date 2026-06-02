@@ -47,22 +47,32 @@ class DemoTemperatureControl(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("1: Test heater", line=1)
-            self.titrator.lcd.print("2: Test controller", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("4: Return", line=4)
+            #self.titrator.lcd.print("1: Test heater", line=1)
+            #self.titrator.lcd.print("2: Test controller", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("4: Return", line=4)
+            
+            print("1: Test heater")
+            print("2: Test controller")
+            print("")
+            print("4: Return")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Test heater", line=1)
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
-                line=2,
-                style="center",
-            )
-            self.titrator.lcd.print(
-                "Heater on: " + str(self.titrator.heater.value), line=3, style="center"
-            )
-            self.titrator.lcd.print("Any key to turn off", line=4)
+            #self.titrator.lcd.print("Test heater", line=1)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
+            #    line=2,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print(
+            #    "Heater on: " + str(self.titrator.heater.value), line=3, style="center"
+            #)
+            #self.titrator.lcd.print("Any key to turn off", line=4)
+            
+            print("Test heater")
+            print(f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C")
+            print("Heater on: " + str(self.titrator.heater.value))
+            print("Any key to turn off")
 
             # Safety Check, does not allow the temperature to get above 80 C
             if self.titrator.temperature_probe_control.get_temperature() > 80:
@@ -70,13 +80,18 @@ class DemoTemperatureControl(UIState):
                 self.substate = 1
 
         elif self.substate == 3:
-            self.titrator.lcd.print("Test controller", line=1)
-            self.titrator.lcd.print(
-                f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
-                line=2,
-                style="center",
-            )
-            self.titrator.lcd.print(
-                "Heater on: " + str(self.titrator.heater.value), line=3, style="center"
-            )
-            self.titrator.lcd.print("Any key to turn off", line=4)
+            #self.titrator.lcd.print("Test controller", line=1)
+            #self.titrator.lcd.print(
+            #    f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C",
+            #    line=2,
+            #    style="center",
+            #)
+            #self.titrator.lcd.print(
+            #    "Heater on: " + str(self.titrator.heater.value), line=3, style="center"
+            #)
+            #self.titrator.lcd.print("Any key to turn off", line=4)
+            
+            print("Test controller")
+            print(f"{self.titrator.temperature_probe_control.get_temperature():>4.3f} C")
+            print("Heater on: " + str(self.titrator.heater.value))
+            print("Any key to turn off")

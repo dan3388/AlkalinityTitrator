@@ -62,31 +62,56 @@ class UpdateSettings(UIState):
         The function to loop through and display to the LCD screen until a new keypad input
         """
         if self.substate == 1:
-            self.titrator.lcd.print("Reset calibration", line=1)
-            self.titrator.lcd.print("settings to default:", line=2)
-            self.titrator.lcd.print("(y/n)", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("Reset calibration", line=1)
+            #self.titrator.lcd.print("settings to default:", line=2)
+            #self.titrator.lcd.print("(y/n)", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print("Reset calibration")
+            print("settings to default:")
+            print("(y/n)")
+            print("")
 
         elif self.substate == 2:
-            self.titrator.lcd.print("Default constants", line=1)
-            self.titrator.lcd.print("restored", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Default constants", line=1)
+            #self.titrator.lcd.print("restored", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Default constants")
+            print("restored")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 3:
-            self.titrator.lcd.print("Set volume in pump:", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("(y/n)", line=3)
-            self.titrator.lcd.print("", line=4)
+            #self.titrator.lcd.print("Set volume in pump:", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("(y/n)", line=3)
+            #self.titrator.lcd.print("", line=4)
+            
+            print("Set volume in pump:")
+            print("")
+            print("(y/n)")
+            print("")
 
         elif self.substate == 4:
-            self.titrator.lcd.print("Enter Volume in pump", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Enter Volume in pump", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Enter Volume in pump")
+            print("")
+            print("")
+            print("Any key to continue")
 
         elif self.substate == 5:
-            self.titrator.lcd.print("Volume in pump set", line=1)
-            self.titrator.lcd.print("", line=2)
-            self.titrator.lcd.print("", line=3)
-            self.titrator.lcd.print("Any key to continue", line=4)
+            #self.titrator.lcd.print("Volume in pump set", line=1)
+            #self.titrator.lcd.print("", line=2)
+            #self.titrator.lcd.print("", line=3)
+            #self.titrator.lcd.print("Any key to continue", line=4)
+            
+            print("Volume in pump set")
+            print("")
+            print("")
+            print("Any key to continue")

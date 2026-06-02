@@ -77,7 +77,12 @@ class UserValue(UIState):
         """
         The function to loop through and display to the LCD screen until a new keypad input
         """
-        self.titrator.lcd.print(self.get_label(), line=1)
-        self.titrator.lcd.print(self.value, style="center", line=2)
-        self.titrator.lcd.print("*=. A)ccept B)ack", line=3, style="center")
-        self.titrator.lcd.print("D)ecline  C)lear", line=4, style="center")
+        #self.titrator.lcd.print(self.get_label(), line=1)
+        #self.titrator.lcd.print(self.value, style="center", line=2)
+        #self.titrator.lcd.print("*=. A)ccept B)ack", line=3, style="center")
+        #self.titrator.lcd.print("D)ecline  C)lear", line=4, style="center")
+        
+        print(self.get_label())
+        print(self.value)
+        print("*=. A)ccept B)ack")
+        print("D)ecline  C)lear")
