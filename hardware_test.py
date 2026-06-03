@@ -101,7 +101,7 @@ def run_hardware_test():
                 print(f"[Hardware] Stirring for {stir_time} seconds...")
                 stir_controller.set_slow()
                 start_time = time.time()
-                while (time.time() - start_time) <= stir_input:
+                while (time.time() - start_time) <= stir_time:
                     control.update()
                     time.sleep(0.5)
                 stir_controller.set_stop()
